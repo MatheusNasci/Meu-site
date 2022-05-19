@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 46 Vetor</title>
+</head>
+<body>
+    
+    <input placeholder="Informe o nome de uma pessoa" id="ipt_pessoa">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br><br>
+    <button onclick="mostrar()">Mostrar o Resultado</button>
+
+    <div id="div_pesquisa"></div>
+
+</body>
+</html>
+<script>
+    // Vetor ou Array é uma variável especial, em um vetor nós podemos
+    // armazenar vários valores dentro de uma variável
+    // 
+    // Para criar um vetor nós usaremos um par de colchetes 
+    // 
+    // Para separar os valores contidos no vetor nós usamos a , virgula
+    //
+    // Abaixo criamos um VETOR chamado 'pessoas', esse vetor está vazio
+    var vt_pessoas = []; 
+
+    function cadastrar() {
+        // O método ".push()" insere uma nova ocorrência no final do vetor
+        vt_pessoas.push(ipt_pessoa.value);
+        ipt_pessoa.value = '';
+    }
+
+    function mostrar() {
+        // Se eu mostrar o vetor será apresentada todas ocorrencias separadas por virgula
+        //
+        // A propriedade ".length" retorna a quantidade de elementos do vetor
+        //
+        // Eu posso referenciar um vetor por um indice, lembrando que 
+        //          o primeiro indice de um vetor é 0
+        div_pesquisa.innerHTML = `O meu vetor está assim : ${vt_pessoas} <br>`;            
+        div_pesquisa.innerHTML += `A qtde. de ocorrência é: ${vt_pessoas.length}<br>`;            
+        div_pesquisa.innerHTML += `A Primeira ocorrência é: ${vt_pessoas[0]}<br>`;  
+        div_pesquisa.innerHTML += `A Terceira ocorrência é: ${vt_pessoas[2]}<br>`;           
+        div_pesquisa.innerHTML += `A Última ocorrência é: ${vt_pessoas[vt_pessoas.length-1]}<br><br><br>`;
+        
+        // Neste FOR eu mostrarei todas as ocorrencias do meu vetor vt_pessoas
+        for (var index = 0; index < vt_pessoas.length; index++) {
+            div_pesquisa.innerHTML += `A ${index+1}ª ocorrência é: ${vt_pessoas[index]}<br>`;         
+        }
+    }
+</script>
