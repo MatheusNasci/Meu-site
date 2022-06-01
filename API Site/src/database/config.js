@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "portalnether",
     user: "nasci",
-    password: "Nascimento0810",
+    password: "urubu100",
 };
 
 function executar(instrucao) {

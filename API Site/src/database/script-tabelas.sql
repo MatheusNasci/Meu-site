@@ -4,10 +4,15 @@ create database portalnether;
 use portalnether;
 
 create table Usuario(
-idUsuario int primary key auto_increment,
-nome varchar(100),
-email varchar(100),
-senha varchar(45)
+    idUsuario int primary key auto_increment,
+    nome varchar(100),
+    email varchar(100),
+    senha varbinary(128)
+);  
+
+create table Votos (
+    idVoto int primary key auto_increment,
+    datetime current_timestamp,
 );
 
 

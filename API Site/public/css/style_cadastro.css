@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 44px;
+    margin: 38px;
 }
 
 .card img {
@@ -36,7 +36,6 @@ body {
 .card input {
     padding: 14px;
     width: 65%;
-    
 }
 
 .card .btnlogin {
@@ -96,14 +95,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
 }
 
 .btn {
     display: flex;
     justify-content: center;
     margin: 15px;
-    margin-top: -40px;
+    margin-top: -10px;
     width: 100%;
 }
 
