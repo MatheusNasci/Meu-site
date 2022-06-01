@@ -10,7 +10,7 @@ body {
     background-color: #483D8B;
 }
 /* LOGIN */
-.container-login {
+.container-login-botoes {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@ body {
 
 .card {
     background-color: #fff;
-    height: 85vh;
+    height: 90vh;
     width: 45%;
     display: flex;
     flex-direction: column;

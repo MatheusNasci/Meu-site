@@ -15,6 +15,11 @@ body {
 }
 
 /* NAVBAR */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .container {
     display: flex;
     align-items: center;
@@ -43,24 +48,22 @@ ul a {
 ul {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     cursor: pointer;
     width: 30vw;
 }
 
 button {
     padding: 10px;
-    font-family: pixel;
     align-items: center;
+    font-family: pixel;
     background-image: url(../assets/imgs/Obsidian-Block.png);
-    background-size: 80px;
+    background-size: 70px;
     color: #fff;
     border: 1px solid #fff;
     border-radius: 3px;
-    font-size: 0.7em;
+    font-size: 0.5em;
     cursor: pointer;
-    margin: 20%;
 }
 
 button:hover {
@@ -134,7 +137,7 @@ button:hover {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     background-color: #fff;
     /* background-image: url(imagem/0acad57be16686d2cf918141f6ecc83e.jpg);
     background-size: 90vh; */
@@ -142,11 +145,11 @@ button:hover {
 
 /* CARD */
 .container-card {
-    width: 100%;
-    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 60vh;
 }
 
 .card {
@@ -155,9 +158,11 @@ button:hover {
     flex-direction: column;
     align-items: center;
     width: 25%;
-    height: 75vh;
+    height: 80vh;
     background-color: black;
-    margin: 20px;
+    margin: 10px;
+    margin-top: -90px;
+    margin-bottom: -90px;
     border-radius: 5px;
     box-shadow: 6px 6px blueviolet;
 }
@@ -171,8 +176,9 @@ button:hover {
 .card .text-mod {
     width: 80%;
     text-align: center;
-    font-size: 1em;
+    font-size: 0.8em;
     color: #fff;
+    /* font-weight: bold; */
 }
 
 .card h2 {
@@ -185,7 +191,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     background-image: url(../assets/imgs/wallpaper-bloco-terra.jpg);
 }
 
@@ -195,7 +201,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     width: 80%;
-    height: 90vh;
+    height: 70vh;
     background-color: #fff;
     box-shadow: 10px 10px 10px rgb(17, 17, 17);
 }
@@ -204,12 +210,13 @@ button:hover {
     display: flex;
     align-items: center;
     text-align: justify;
-    width: 80%;
-    font-size: 1.3em;
+    width: 85%;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .mine-card img {
-    width: 70%;
+    width: 50%;
 }
 
 .mine-card button{
@@ -218,7 +225,7 @@ button:hover {
     background-color: black;
     font-size: 2em;
     width: 100%;
-    height: 14vh;
+    height: 10vh;
     border: none;
 }
 
