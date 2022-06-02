@@ -106,7 +106,7 @@ body {
     justify-content: center;
     margin: 15px;
     margin-top: -10px;
-    width: 100%;
+    width: 80%;
 }
 
 .btnhome {
@@ -118,5 +118,18 @@ body {
     display: none;
     justify-content: center;
     width: 40%;
-    margin: auto;
+    margin: 0;
 }
+
+/* MENSAGEM ERRO  */
+.card_erro{
+    font-size: 0.7em;
+    color: red;
+}
+
+.invalid-pass-email{
+    font-size: 0.7em;
+    margin-bottom: -20px;
+    color: red;
+}
+

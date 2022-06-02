@@ -18,8 +18,8 @@ body {
 }
 
 .card img {
-    width: 30%;
-    margin-bottom: -20px;
+    width: 20%;
+    margin-bottom: -5px;
 }
 
 .card {
@@ -56,7 +56,7 @@ body {
     margin: 7px;
     margin-bottom: 8px;
     padding: 12px;
-    width: 100%;
+    width: 110%;
     background-color: black;
     color: #fff;
     border-radius: 5px;
@@ -107,7 +107,7 @@ body {
     justify-content: center;
     margin: 15px;
     margin-top: -50px;
-    width: 100%;
+    width: 80%;
 }
 
 .btnhome {
@@ -119,5 +119,17 @@ body {
     display: none;
     justify-content: center;
     width: 40%;
-    margin: auto;
+    margin: 0;
+}
+
+/* MENSAGEM ERRO  */
+.card_erro{
+    font-size: 0.7em;
+    color: red;
+}
+
+.invalid-pass-email{
+    font-size: 0.7em;
+    margin-bottom: -20px;
+    color: red;
 }

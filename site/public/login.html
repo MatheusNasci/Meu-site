@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="js/funcoes.js"></script>>
+
+    <script src="js/funcoes.js"></script>
 
     <link rel="shortcut icon" href="assets/imgs/balde-lava-icon.png" type="image/x-icon">
 
@@ -33,23 +33,24 @@
             <div id="div_aguardar" class="loading-div">
                 <img src="./assets/imgs/loading.gif" id="loading-gif">
             </div>
+
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+
+            <div class="invalid-pass-email">
+                <div id="div_erros_login"></div>
+            </div>
+
             <div class="container-login-botoes">
                 <div class="container-login">
                     <div class="btn">
-                        <a href=""><button onclick="entrar()" class="btnlogin">Entrar</button></a>
+                        <button onclick="entrar()" class="btnlogin">Entrar</button>
                         <a href="cadastro.html"><button class="btncadastrar">Cadastre-se</button></a>
                     </div>
                     <a href="index.html"><button class="btnhome">Voltar ao menu</button></a>
-                </div>
-
-                <div class="alerta_erro">
-                    <div class="card_erro" id="cardErro">
-                        <span id="mensagem_erro"></span>
-                    </div>
-                </div>
-
-                <div id="div_erros_login">
-
                 </div>
             </div>
 
@@ -67,24 +68,24 @@
         var senhaVar = iptSenha.value;
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (emailVar == "" || senhaVar == "") {
+        if (iptEmail.value == "" || iptSenha.value == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
             finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 7000)
         }
 
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            mensagem_erro.innerHTML = "E-mail inválido! Verifique e tente novamente.";
             finalizarAguardar();
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 7000)
         }
 
         console.log("FORM LOGIN: ", emailVar);

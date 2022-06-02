@@ -62,12 +62,11 @@ button {
     padding: 10px;
     font-family: pixel;
     color: #fff;
-    border: 1px solid #fff;
     border-radius: 3px;
     font-size: 0.8em;
     cursor: pointer;
     background-color: black;
-    border: 1px solid #fff;
+    border: 1px solid #d1d1d1;
     border-radius: 5px;
     box-shadow: 6px 6px blueviolet;
     transition: 0.3s;
@@ -77,6 +76,7 @@ button:hover {
     background-color: blueviolet;
     box-shadow: 15px 15px black;
     color: #fff;
+    border: 1px solid blueviolet;
 }
 
 /* CARD-BANNER*/
