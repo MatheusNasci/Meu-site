@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="js/funcoes.js"></script>>
+
+    <link rel="shortcut icon" href="assets/imgs/balde-lava-icon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/style_login.css">
+
+    <title>Login | Portal Do Nether</title>
+</head>
+
+<body>
+    <div class="container-login">
+        <div class="card">
+            <img src="assets/imgs/poblaze.png" alt="">
+            <h1>Login</h1>
+            <!-- EMAIL -->
+            <p>E-mail</p>
+            <input type="text" id="iptEmail" placeholder="Digite seu email">
+            <span id="spanErroEmail" class="spanErro" style="display: none;"></span>
+            <!-- SENHA -->
+            <p>Senha</p>
+            <input type="password" id="iptSenha" placeholder="Digite sua senha">
+            <span id="spanErroSenha" class="spanErro" style="display: none;"></span>
+            <a class="esenha" href="">Esqueci minha senha</a>
+            <!-- BOTOES -->
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/imgs/loading.gif" id="loading-gif">
+            </div>
+            <div class="container-login-botoes">
+                <div class="container-login">
+                    <div class="btn">
+                        <a href=""><button onclick="entrar()" class="btnlogin">Entrar</button></a>
+                        <a href="cadastro.html"><button class="btncadastrar">Cadastre-se</button></a>
+                    </div>
+                    <a href="index.html"><button class="btnhome">Voltar ao menu</button></a>
+                </div>
+
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function entrar() {
+        aguardar();
+
+        var emailVar = iptEmail.value;
+        var senhaVar = iptSenha.value;
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
+<script>
+    function mostrar() {
+        iptSenha.type = "text"
+        icon_mostrar.style.display = "none"
+        icon_esconder.style.display = "block"
+    }
+    function esconder() {
+        iptSenha.type = "password"
+        icon_mostrar.style.display = "block"
+        icon_esconder.style.display = "none"
+    }
+</script>

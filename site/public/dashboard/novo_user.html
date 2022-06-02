@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- esse link abaixo serve para deixar o icon do logo no navegador -->
+    <link rel="shortcut icon" href="Imagens/logo-agroh.png">
+    <link rel="stylesheet" href="cadastro_user.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="dashboard_style.css">
+
+    <title>AgrohCompany | Dashboard</title>
+
+    <!-- 
+    já esse link é dos gráficos de linhas e barras que temos,
+    não sei se os polares vão precisar de link, caso sim, ele entra aqui
+    em uma nova tag <script> para ele
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="dashboard_style.css">
+
+    <script src="../js/funcoes.js"></script>
+</head>
+
+<body onload="validarSessao()">
+    <!-- essa tag div global é toda a nossa naveção da página, ela foi difivida em partes -->
+    <div id="global" class="global-class">
+
+        <!-- uma das partes é a header-left "cabeçalho esquerdo da página" -->
+        <div id="header-left" class="header-left-class">
+
+            <div class="caixa-user-class">
+                <h2>Olá, <span id="b_usuario">username</span></h2>
+            </div>
+
+            <div class="caixa2-postIt-class">
+                <img src="Imagens/paperclip.png" style="height: 32px; display:flex; justify-content: flex-start">
+            </div>
+
+            <div id="calendario" class="caixa3-calendario-class">
+
+            </div>
+
+        </div>
+        <!-- fim do header-left, tudo que faz parte dela, no css estão com as bordas em RED para auxiliar na construção -->
+
+        <!-- 
+      outra parte é header-right toda parte direita da nossa página, temos uma mini nave, onde tem o logo, botões
+      e logo abaixo os gráficos
+    -->
+        <div id="header-right" class="header-right-class">
+
+            <!-- inicio da nave -->
+            <div id="nave-header-right" class="nave-header-right-class">
+                <img src="Imagens/logo-agroh&nome.jpeg" alt="logo-agrohCompany">
+                <ul>
+                    <li><a href="../dashboard/dashboard_Agroh.html"><img src="../Imagens/grafico.png"
+                                alt="imagem-envelope"></a></li>
+                    <li><a href="https://app.pipefy.com/public/form/nfSUmU93" target="_blank"><img
+                                src="Imagens/help-desk.png" alt="imagem-avatar"></a></li>
+                    <li><img src="Imagens/sair.png" alt="imagem-saida" onclick="limparSessao()"
+                            style="cursor: pointer;"></li>
+                </ul>
+            </div>
+            <!-- fim da nave, tudo que faz parte dela, no css estão com as bordas em greenyellow -->
+
+            <form action="">
+
+                <div class="container-cadastro">
+
+                    <div class="fundo">
+
+                        <div class="grey2">
+
+                            <h2>Adicionar Gerenciador</h2>
+
+                            <!-- NOME -->
+                            <div class="input-all">
+                                <i class="uil uil-align-left icon"></i>
+                                <input class="ipt" type="text" name="nome" id="nome_input" placeholder="Nome">
+                            </div>
+
+                            <!-- CPF/CNPJ -->
+                            <div class="input-all">
+                                <i class="uil uil-align-left icon"></i>
+                                <input class="ipt" type="text" name="cpf" id="cpf_input" placeholder="CPF">
+                            </div>
+
+                            <!-- TELEFONE -->
+                            <div class="input-all">
+                                <i class="uil uil-phone-alt icon"></i>
+                                <input class="ipt" type="text" name="telefone" id="telefone_input"
+                                    placeholder="Telefone">
+                            </div>
+
+                            <!-- E-MAIL -->
+                            <div class="input-all">
+                                <i class="uil uil-at icon"></i>
+                                <input class="ipt" type="email" name="e-mail" id="email_input" placeholder="E-mail">
+                            </div>
+
+                            <!-- SENHA -->
+                            <div class="input-all">
+                                <i class="uil uil-padlock icon"></i>
+                                <input class="ipt" type="password" name="senha" id="senha_input" placeholder="Senha">
+                            </div>
+
+                            <!-- SENHA2 -->
+                            <div class="input-all">
+                                <i class="uil uil-padlock icon"></i>
+                                <input class="ipt" type="password" name="senha" id="confirmacao_senha_input"
+                                    placeholder="Confirme sua senha">
+                            </div>
+
+
+                            <div class="cb_box">
+                                <i class="uil uil-head-side icon"></i>
+                                <select name="" id="ipt_user">
+                                    <option value="0" style="color: grey;">-Tipo de Usuário-</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Analista</option>
+                                </select>
+                            </div>
+
+                            <!-- <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro">
+                            <span id="mensagem_erro"></span>
+                        </div>
+                    </div>
+    
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="../assets/loading.gif" id="loading-gif">
+                    </div>
+    
+                    <div id="div_erros_login">
+    
+                    </div> -->
+
+                            <div>
+                                <button class="btn-login" onclick="cadastrar()" id="login">Cadastre-se</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- inicio do body onde ficam os gráficos, no css ele está com as bordas em grey -->
+
+        </div>
+        <!-- fim da tag div global -->
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var cpfVar = cpf_input.value;
+        var telefoneVar = telefone_input.value;
+        var idEmpresaVar = sessionStorage.FK_EMPRESA;
+        var tipoVar = Number(ipt_user.value);
+        var admVar = sessionStorage.ID_USUARIO
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == "" || telefoneVar == "" || tipoVar == 0) {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+            // finalizarAguardar();
+            alert("Insira todos os campos")
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            // finalizarAguardar();
+            alert("Email inválido")
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        if (senhaVar != confirmacaoSenhaVar) {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
+            // finalizarAguardar();
+            alert("As senhas inseridas devem ser iguais")
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                cpfServer: cpfVar,
+                telefoneServer: telefoneVar,
+                tipoServer: tipoVar,
+                idEmpresaServer: idEmpresaVar,
+                admServer: admVar,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block"
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                window.location = "../login.html";
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

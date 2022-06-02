@@ -1,0 +1,169 @@
+.grey2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    height: auto;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    background-color: #d1d1d1;
+    box-shadow: 3px 5px 15px #666667;
+    margin: 3vh 5vw;
+}
+
+.input-all input {
+    outline: 0;
+}
+
+.fundo h1 {
+    color: #56bd56;
+    border-bottom: 2px solid #56bd56;
+}
+
+.inp {
+    display: flex;
+    justify-content: center;
+    padding: 1vh;
+    width: 20%;
+}
+
+.btn-login {
+    border-radius: 7px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 0.85em;
+    margin-top: 5vh;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.btn-home {
+    color: #ffffff;
+    border-radius: 7px;
+    margin: 10px;
+    padding: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.spanErro {
+    font-size: 0.7em;
+    color: darkred;
+    margin-bottom: 3%;
+}
+
+#cadastro {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+}
+
+#cadastro:hover {
+    background-color: #fdfdf6;
+    color: #56bd56;
+    border: 1px solid #56bd56;
+    transition: 0.5s;
+}
+
+#login {
+    background-color: transparent;
+    color: #666667;
+    border: 1px solid #666667;
+    transition: 0.5s;
+}
+
+#login:hover {
+    background-color: #56bd56;
+    color: #ffffff;
+    border: 1px solid #56bd56;
+    transition: 0.5s;
+}
+
+.ipt {
+    height: 5vh;
+    border: none;
+    background-color: #ecf0f1;
+    margin: 1vh;
+    width: 100%;
+}
+
+.input-all {
+    display: inline-block;
+    background-color: #ecf0f1;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    height: 5vh;
+    margin: 5px;
+    padding: 5px;
+}
+
+.input-all input{
+    outline: 0;
+}
+
+.icon {
+    color: #56bd56;
+}
+
+.icon_senha {
+    color: #56bd56;
+    cursor: pointer;
+}
+
+.check:after {
+    color: #56bd56;
+}
+
+.loading-div {
+    width: 20px;
+    margin: auto;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    border-radius: 7px;
+    border: #56bd56 2px solid;
+    padding: 5px;
+    margin-right: -25%;
+    box-shadow: 0 1px 5px #666667;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .banner #div_erros_login {
+    margin-top: 15px;
+  }
+.cb_box{
+    display: inline-block;
+}
+
+#ipt_user{
+    margin-top: 3vh;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #ecf0f1;
+    padding: 10px 20px 10px 10px;
+}
+
