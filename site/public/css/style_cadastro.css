@@ -50,13 +50,15 @@ body {
     border: none;
     cursor: pointer;
     transition: 0.2s;
+    margin-left: -40px;
 }
 
 .card .btncadastrar {
     margin: 7px;
     margin-bottom: 8px;
     padding: 12px;
-    width: 100%;
+    width: 140%;
+    height: 7vh;
     background-color: black;
     color: #fff;
     border-radius: 5px;

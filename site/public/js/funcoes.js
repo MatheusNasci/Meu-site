@@ -1,10 +1,9 @@
-// sessão
+2// sessão
 function validarSessao() {
     // aguardar();
 
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-    var tipo = sessionStorage.FK_TIPO;
 
     var h1LoginUsuario = document.getElementById("h1_login_usuario");
 
@@ -14,9 +13,9 @@ function validarSessao() {
         }
         var username = document.getElementById("b_usuario")
         username.innerHTML = nome
-        var icone = document.getElementById("nv_li")
-        icone.style.display = "none"
-        // finalizarAguardar();
+        // var icone = document.getElementById("nv_li")
+        // icone.style.display = "none"
+        // // finalizarAguardar();
     } else {
         window.location = "../login.html";
     }

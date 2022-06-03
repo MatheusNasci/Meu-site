@@ -48,7 +48,7 @@
                 <div class="container-login">
                     <div class="btn">
                         <button onclick="entrar()" class="btnlogin">Entrar</button>
-                        <a href="cadastro.html"><button class="btncadastrar">Cadastre-se</button></a>
+                        <a class="" href="cadastro.html"><button href="cadastro.html" class="btncadastrar">Cadastre-se</button></a>
                     </div>
                     <a href="index.html"><button class="btnhome">Voltar ao menu</button></a>
                 </div>
@@ -61,6 +61,8 @@
 
 </html>
 <script>
+    var vt_votos = [];
+    
     function entrar() {
         aguardar();
 
@@ -111,7 +113,7 @@
                     console.log(JSON.stringify(json));
 
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
+                    localStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
