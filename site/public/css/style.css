@@ -176,7 +176,7 @@ button:hover {
     margin-bottom: -90px;
     border-radius: 5px;
     box-shadow: 6px 6px blueviolet;
-    transition: 700ms;
+    transition: 0.9s;
 }
 
 .card:hover{

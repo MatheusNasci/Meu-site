@@ -23,7 +23,7 @@
                 <img src="../assets/imgs/portal_do_Nether-logotipo.png">
             </div>
             <li><a href="#newmods">Novos Mods</a></li>
-            <li><a href="">Minecraft</a></li>
+            <li><a href="">Votar</a></li>
             <button onclick="limparSessao()" style="cursor: pointer;">Sair</button>
 
         </div>
@@ -32,40 +32,53 @@
         <div id="title-mod">
             <p>RANKING</p>
             <img src="../assets/imgs/trofeu.png" alt="" width="30%">
+            <div class="">
+                <canvas id="myChart" width="900" height="400"></canvas>
+            </div>
+            <div id="msg_totalVoto"></div>
         </div>
-        <!-- <div>
-            <canvas id="canvasChartBarra" class="tamanhoGraficosBarra"></canvas>
-        </div> -->
     </div>
     <div id="container-voto" class="votos">
         <div class="card-votos">
             <h1>Qual mod você deseja votar?</h1>
             <div class="votos-botoes">
-                <div class="selector">
+                <select id="select_option">
+                    <option> - Selecione - </option>
+                    <option value="1">Shaders</option>
+                    <option value="2">Pixelmon</option>
+                    <option value="3">Lucky Block</option>
+                    <option value="4">Xaero's World</option>
+                    <option value="5">Biome Bundlemod</option>
+                    <option value="6">Chisel</option>
+                </select>
+                <div class="seila">
+                    <button onclick="votar()">VOTAR</button>
+                    <div id="msg_voto"></div>
+                </div>
+                <!-- <div class="selector">
                     <div id="selectField">
                         <p id="selectText">Selecione o melhor mod</p>
                         <img id="flecha" src="../assets/imgs/arrow.png">
                     </div>
                     <ul id="lista" class="ocultar">
-                        <li class="options" value="2">
-                            <img src="../assets/imgs/shadersmods-logo.png">
+                        <li class="options" id="Shaders">
+                            <img src="../assets/imgs/logo-shadersmod.png">
                             <p>Shaders</p>
                         </li>
-                        <li class="options">
+                        <li class="options" id="Pixel">
                             <img src="../assets/imgs/pixelmon.png">
                             <p>Pixelmon</p>
                         </li>
-                        <li class="options">
+                        <li class="options" id="Lucky">
                             <img src="../assets/imgs/luckyblock.png">
                             <p>Lucky Block</p>
                         </li>
-                        <li class="options">
+                        <li class="options" id="Xaero">
                             <img src="../assets/imgs/minimap.png">
                             <p>Xaero's World</p>
                         </li>
                     </ul>
-                </div>
-                <button onclick="votar()">VOTAR</button>
+                </div> -->
             </div>
         </div>
     </div>
@@ -182,25 +195,109 @@
         </div>
         <p>Copyright © Nether </p>
     </footer>
-
 </body>
 
 </html>
 <script>
-
-    var escolha = document.getElementById("lista")
+    var vt_votos = [];
+    var contadorShaders = 0;
+    var contadorPixelmon = 0;
+    var contadorLucky = 0;
+    var contadorXaero = 0;
+    var contadorBiome = 0;
+    var contadorChiel = 0;
+    var totalVotos = 0;
+    // var selectField = document.getElementById("selectField");
+    // var selectText = document.getElementById("selectText");
+    // var options = document.getElementsByClassName("options");
+    // var lista = document.getElementById("lista");
+    // var flecha = document.getElementById("flecha")
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 
     function votar() {
-        if (escolha == 2) {
-            alert(funfou);   
-        }
-    }
 
-    var selectField = document.getElementById("selectField");
-    var selectText = document.getElementById("selectText");
-    var options = document.getElementsByClassName("options");
-    var lista = document.getElementById("lista");
-    var flecha = document.getElementById("flecha")
+        var escolha = Number(select_option.value);
+        if (escolha == 1) {
+            vt_votos.push('Shaders');
+            msg_voto.innerHTML = `+${++contadorShaders} Voto para o Shaders`;
+
+            for (var index = 0; index < vt_votos.length + 1; index++) {
+                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
+            }
+        } else if (escolha == 2) {
+            vt_votos.push('Pixelmon');
+            msg_voto.innerHTML = `+${++contadorPixelmon} Voto para o Pixelmon`;
+
+            for (var index = 0; index < vt_votos.length + 1; index++) {
+                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
+            }
+        } else if (escolha == 3) {
+            vt_votos.push('Lucky');
+            msg_voto.innerHTML = `+${++contadorLucky} Voto para o Lucky Block`;
+
+            for (var index = 0; index < vt_votos.length + 1; index++) {
+                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
+            }
+        } else if (escolha == 4) {
+            vt_votos.push('Xaero');
+            msg_voto.innerHTML = `+${++contadorXaero} Voto para o Xaero's World`;
+
+            for (var index = 0; index < vt_votos.length + 1; index++) {
+                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
+            }
+        } else if (escolha == 5) {
+            vt_votos.push('Biome');
+            msg_voto.innerHTML = `+${++contadorBiome} Voto para o Biome Bundlemod`;
+
+            for (var index = 0; index < vt_votos.length + 1; index++) {
+                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
+            }
+
+        } else if (escolha == 6) {
+            
+            vt_votos.push('Chisel');
+            msg_voto.innerHTML = `+${++contadorChiel} Voto para o Chiel`;
+
+            for (var index = 0; index < vt_votos.length + 1; index++) {
+                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
+            }
+        }
+
+    }
 
     selectField.onclick = function () {
         lista.classList.toggle("ocultar");
@@ -219,8 +316,7 @@
 
     window.onload = obterDadosGrafico(1);
 
-    var username = document.getElementById('b_usuario');
-    username.innerHTML = localStorage.NOME_USUARIO;
+    b_usuario.innerHTML = json.nome;
 
     // verificar_autenticacao();
     function alterarTitulo(idDado) {

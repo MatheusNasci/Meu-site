@@ -14,3 +14,7 @@ create table usuario(
     senha varbinary(128)
 );
 
+create table (
+    id
+);
+

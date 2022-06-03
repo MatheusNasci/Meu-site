@@ -29,7 +29,7 @@ body {
 .logo img {
     margin-top: 70px;
     width: 25vw;
-    margin-left: -30px;
+    margin-left: -60px;
 }
 
 li {
@@ -96,6 +96,7 @@ button {
     align-items: center;
     width: 15vw;
     font-size: 1.7em;
+    margin-top: 85px;
     margin-left: 20px;
     /* font-weight: bold; */
 }
@@ -105,6 +106,29 @@ button {
 }
 
 /* SELECT */
+
+select {
+    font-size: 1.5em;
+    font-family: pixel;
+    padding: 13px 20px;
+    border-radius: 5px;
+    color: black;
+}
+
+#msg_voto {
+    color: #fff;
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    height: 10vh;
+    color: rgb(46, 226, 46);
+}
+
+.seila {
+    display: flex;
+    flex-direction: column;
+}
+
 .selector{
     width: 350px;
     margin-bottom: -250px;
@@ -137,7 +161,6 @@ button {
     display: flex;
     justify-content: center;
     width: 120%;
-    padding: 15 0px 15px 70px;
     list-style: none;
     cursor: pointer;
     box-sizing: border-box;
@@ -147,7 +170,7 @@ button {
 }
 
 .options img {
-    width: 25px;
+    width: 35px;
     margin-right: 10px;
     top: 12px;
     left: -40px;
@@ -169,7 +192,11 @@ button {
     display: flex;
     justify-content: center;
     background-color: blueviolet;
-    height: 80vh;
+    height: 100vh;
+}
+
+#msg_totalVoto {
+    font-size: 20px;
 }
 
 /* TITULO  */
