@@ -23,16 +23,18 @@
                 <img src="../assets/imgs/portal_do_Nether-logotipo.png">
             </div>
             <li><a href="#newmods">Novos Mods</a></li>
-            <li><a href="">Votar</a></li>
+            <li><a href="#container-voto">Votar</a></li>
             <button onclick="limparSessao()" style="cursor: pointer;">Sair</button>
 
         </div>
     </div>
     <div id="ranking" class="container-raking">
         <div id="title-mod">
-            <p>RANKING</p>
-            <img src="../assets/imgs/trofeu.png" alt="" width="30%">
-            <div class="">
+            <div class="title">
+                <p>RANKING</p>
+                <img src="../assets/imgs/trofeu.png" alt="" width="30%">
+            </div>
+            <div class="container-graficobar">
                 <canvas id="myChart" width="900" height="400"></canvas>
             </div>
             <div id="msg_totalVoto"></div>
@@ -55,30 +57,6 @@
                     <button onclick="votar()">VOTAR</button>
                     <div id="msg_voto"></div>
                 </div>
-                <!-- <div class="selector">
-                    <div id="selectField">
-                        <p id="selectText">Selecione o melhor mod</p>
-                        <img id="flecha" src="../assets/imgs/arrow.png">
-                    </div>
-                    <ul id="lista" class="ocultar">
-                        <li class="options" id="Shaders">
-                            <img src="../assets/imgs/logo-shadersmod.png">
-                            <p>Shaders</p>
-                        </li>
-                        <li class="options" id="Pixel">
-                            <img src="../assets/imgs/pixelmon.png">
-                            <p>Pixelmon</p>
-                        </li>
-                        <li class="options" id="Lucky">
-                            <img src="../assets/imgs/luckyblock.png">
-                            <p>Lucky Block</p>
-                        </li>
-                        <li class="options" id="Xaero">
-                            <img src="../assets/imgs/minimap.png">
-                            <p>Xaero's World</p>
-                        </li>
-                    </ul>
-                </div> -->
             </div>
         </div>
     </div>
@@ -97,7 +75,7 @@
                 tempestade parecerá mais escuro e ameaçador, a luz do sol parecerá mais brilhante e mais calmante e o
                 pôr do sol parecerá mais magnífico do que antes.
             </p>
-            <img style="width: 60px;" src="../assets/imgs/download.png" alt="download">
+            <a><button>DOWNLOAD</button></a>
         </div>
 
         <div class="card-mod">
@@ -113,7 +91,7 @@
                 especiais ocorrendo naturalmente no mundo. A única maneira de obtê-los é interagindo com blocos usando o
                 novo item cinzel, que permite cortar designs exclusivos em faces de bloco.
             </p>
-            <img style="width: 60px;" src="../assets/imgs/download.png" alt="download">
+            <a><button>DOWNLOAD</button></a>
         </div>
 
         <div class="card-mod">
@@ -130,7 +108,7 @@
                 Estruturas personalizadas (masmorras, ruínas, etc)
                 Regras personalizadas de geração de mobs (em biomas selecionados)
             </p>
-            <img style="width: 60px;" src="../assets/imgs/download.png" alt="download">
+            <a><button>DOWNLOAD</button></a>
         </div>
         <div class="card-mod">
             <img style="width: 150px;" src="../assets/imgs/luckyblock.png" alt="">
@@ -146,7 +124,7 @@
                 imprevisibilidade. Você mesmo pode personalizar todos os resultados ou baixar uma variedade de
                 complementos da comunidade
             </p>
-            <img style="width: 60px;" src="../assets/imgs/download.png" alt="download">
+            <a><button>DOWNLOAD</button></a>
         </div>
 
         <div class="card-mod">
@@ -166,7 +144,7 @@
                 em
                 que os Pokémon precisam de um ambiente adequado ao seu redor para se reproduzir.
             </p>
-            <img style="width: 60px;" src="../assets/imgs/download.png" alt="download">
+            <a><button>DOWNLOAD</button></a>
         </div>
 
         <div class="card-mod">
@@ -179,7 +157,7 @@
                 principalmente do lado do cliente. A instalação no lado do servidor é opcional para alguns recursos
                 adicionais, como identificação mundial.
             </p>
-            <img style="width: 60px;" src="../assets/imgs/download.png" alt="download">
+            <a><button>DOWNLOAD</button></a>
         </div>
     </div>
     <footer id="pezao">
@@ -207,34 +185,34 @@
     var contadorBiome = 0;
     var contadorChiel = 0;
     var totalVotos = 0;
-    // var selectField = document.getElementById("selectField");
-    // var selectText = document.getElementById("selectText");
-    // var options = document.getElementsByClassName("options");
-    // var lista = document.getElementById("lista");
-    // var flecha = document.getElementById("flecha")
+
+    var nome = sessionStorage.NOME_USUARIO;
+    var username = document.getElementById("b_usuario")
+    username.innerHTML = nome
+
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Pixelmon', 'Chisel', 'Shaders', 'Lucky Block', 'Biome Blundlemod', 'Xaeros World Map'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Votos',
+                data: [12, 19, 3, 5, 12, 3],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
+                    'red',
+                    'grey',
+                    'green',
+                    'yellow',
+                    'blue',
+                    'saddlebrown'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'red',
+                    'grey',
+                    'green',
+                    'yellow',
+                    'blue',
+                    'saddlebrown'
                 ],
                 borderWidth: 1
             }]
@@ -296,248 +274,6 @@
                 msg_totalVoto.innerHTML = `Total Votos: ${index}`;
             }
         }
-
-    }
-
-    selectField.onclick = function () {
-        lista.classList.toggle("ocultar");
-        flecha.classList.toggle("rotacao");
-    }
-
-    for (options of options) {
-        options.onclick = function () {
-            selectText.innerHTML = this.textContent;
-            lista.classList.toggle("ocultar");
-            flecha.classList.toggle("rotacao");
-        }
-    }
-
-    let proximaAtualizacao;
-
-    window.onload = obterDadosGrafico(1);
-
-    b_usuario.innerHTML = json.nome;
-
-    // verificar_autenticacao();
-    function alterarTitulo(idDado) {
-        var tituloAquario = document.getElementById("tituloAquario")
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #0f2e00'>Sensor " + idDado + "</span>"
-    }
-
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idDado) {
-        alterarTitulo(idDado)
-
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-        fetch(`/medidas/ultimas/${idDado}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idDado);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idDado) {
-        console.log('iniciando plotagem do gráfico...');
-
-        var dados = {
-            labels: [],
-            datasets: [
-                {
-                    yAxisID: 'y-umidade',
-                    label: 'Umidade',
-                    borderColor: '#45b3e7',
-                    backgroundColor: '#89cff0',
-                    fill: false,
-                    data: []
-                },
-                {
-                    yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
-                    borderColor: '#ff3232',
-                    backgroundColor: '#ff7f7f',
-                    fill: false,
-                    data: []
-                }
-            ]
-        };
-
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
-        }
-
-        console.log(JSON.stringify(dados));
-
-        var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
-            data: dados,
-            options: {
-                responsive: true,
-                animation: { duration: 500 },
-                hoverMode: 'index',
-                stacked: false,
-                title: {
-                    display: false,
-                    text: 'Dados capturados'
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            type: 'linear',
-                            display: true,
-                            position: 'left',
-                            id: 'y-temperatura',
-                            ticks: {
-                                beginAtZero: true,
-                                max: 100,
-                                min: 0
-                            }
-                        },
-                        {
-                            type: 'linear',
-                            display: false,
-                            position: 'right',
-                            id: 'y-umidade',
-                            ticks: {
-                                beginAtZero: true,
-                                max: 100,
-                                min: 0
-                            },
-                            gridLines: {
-                                drawOnChartArea: false,
-
-                            },
-                        }
-                    ],
-                }
-            }
-        });
-
-        setTimeout(() => atualizarGrafico(idDado, dados), 4000);
-    }
-
-
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
-
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    var contadorTempCrit = Number(0);
-    var contadorUmidCrit = Number(0);
-    var contadorUmidAlert = Number(0);
-    var contadorTempAlert = Number(0);
-    var temperaturaPico = Number(0);
-
-    function atualizarGrafico(idDado, dados) {
-
-        fetch(`/medidas/tempo-real/${idDado}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
-
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico: ${dados}`);
-
-                    // INSERIR DADOS PARA MUDAR OS GRAFICOS
-                    var ultimaUmid = Number(novoRegistro[0].umidade - 32)
-                    var ultimaTemp = Number(novoRegistro[0].temperatura)
-
-                    temperaturaPico++
-                    if (temperaturaPico > 15) {
-                        dados.datasets[1].data.push((novoRegistro[0].temperatura) * 3);
-                        dados.datasets[0].data.push((novoRegistro[0].umidade) + 40);
-                        temperaturaPico = 0;
-                    }
-
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push((ultimaUmid)); // incluir uma nova medida de umidade
-
-                    dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                    if (ultimaUmid >= 16 && ultimaUmid <= 18) {
-                        calendario.innerHTML = '<span style="color: green; font-weight: bold;"> A umidade está ideal! <br>  Umidade atual: ' + ultimaUmid + '%</span>'
-                    } else if (ultimaUmid >= 14 && ultimaUmid <= 20) {
-                        contadorUmidAlert++
-                        if (contadorUmidAlert >= 30) {
-                            alert('A umidade está em nível de alerta a mais de 1 minuto, verifique a plantação')
-                            contadorUmidAlert = 0;
-                        }
-                        calendario.innerHTML = '<span style="color: orange; font-weight: bold;"> A umidade está em nível de alerta! <br> Umidade atual: ' + ultimaUmid + '%</span>'
-                    } else {
-                        contadorUmidCrit++
-                        if (contadorUmidCrit >= 5) {
-                            alert('A umidade está em nível crítico, verifique a plantação')
-                            contadorUmidCrit = 0;
-                        }
-                        calendario.innerHTML = '<span style="color: red; font-weight: bold;"> A umidade está em nível crítico! <br> Umidade atual: ' + ultimaUmid + '%</span>'
-                    }
-
-                    if (novoRegistro[0].temperatura >= 23 && novoRegistro[0].temperatura <= 26) {
-                        calendario.innerHTML += '<span style="color: green; font-weight: bold;"> A temperatura está ideal! <br> Temperatura atual: ' + novoRegistro[0].temperatura + 'º</span>'
-                    } else if (novoRegistro[0].temperatura >= 20 && novoRegistro[0].temperatura <= 30) {
-                        contadorTempAlert++
-                        if (contadorTempAlert >= 60) {
-                            alert('A temperatura está em nível de alerta a mais de 1 minuto, verifique a plantação')
-                            contadorTempAlert = 0;
-                        }
-                        calendario.innerHTML += '<span style="color: orange; font-weight: bold;"> A temperatura está em nível de alerta!<br> Temperatura atual: ' + novoRegistro[0].temperatura + 'º</span>'
-                    } else {
-                        contadorTempCrit++
-                        if (contadorTempCrit >= 5) {
-                            alert('A temperatura está em nível crítico, verifique a plantação')
-                            contadorTempCrit = 0;
-                        }
-                        calendario.innerHTML += '<span style="color: red; font-weight: bold;"> A temperatura está em nível crítico!<br> Temperatura atual: ' + novoRegistro[0].temperatura + 'º</span>'
-                    }
-                    window.grafico_linha.update();
-
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idDado, dados), 2000);
-
-
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idDado, dados), 2000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
 
     }
 </script>

@@ -3,6 +3,10 @@
     src: url(../assets/fonts/Minecraft.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body { 
     margin: 0;
     padding: 0;
@@ -27,9 +31,10 @@ body {
 }
 
 .logo img {
+    position: relative;
     margin-top: 70px;
     width: 25vw;
-    margin-left: -60px;
+    margin-left: -40px;
 }
 
 li {
@@ -38,6 +43,7 @@ li {
     list-style: none;
     font-weight: bold;
 }
+
 a {
     color: #fff;
     text-decoration: none;
@@ -46,10 +52,6 @@ a {
 
 a:hover {
     color: blueviolet
-}
-
-#title-mod img {
-    margin: 30px;
 }
 
 /* BOTÃO SAIR */
@@ -101,12 +103,16 @@ button {
     /* font-weight: bold; */
 }
 
+#msg_totalVoto {
+    font-size: 20px;
+    margin: 10px;
+}
+
 .card-votos h1 {
     color: #fff;
 }
 
 /* SELECT */
-
 select {
     font-size: 1.5em;
     font-family: pixel;
@@ -121,70 +127,6 @@ select {
     margin-top: 20px;
     width: 100%;
     height: 10vh;
-    color: rgb(46, 226, 46);
-}
-
-.seila {
-    display: flex;
-    flex-direction: column;
-}
-
-.selector{
-    width: 350px;
-    margin-bottom: -250px;
-    z-index: 1;
-}
-
-#selectField {
-    width: 100%;
-    padding: 15px 20px;
-    box-sizing: border-box;
-    background: #fff;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#selectField img {
-    width: 15px;
-}
-
-#lista {
-    width: 90%;
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.options {
-    display: flex;
-    justify-content: center;
-    width: 120%;
-    list-style: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    position: relative;
-    margin-left: -65px;
-    z-index: 1;
-}
-
-.options img {
-    width: 35px;
-    margin-right: 10px;
-    top: 12px;
-    left: -40px;
-}
-
-.options:hover {
-    background: #d1d1d1;
-}
-.ocultar {
-    visibility: hidden;
-}
-
-.rotacao {
-    transform: rotate(180deg);
 }
 
 /* RAKING */
@@ -192,11 +134,18 @@ select {
     display: flex;
     justify-content: center;
     background-color: blueviolet;
-    height: 100vh;
+    height: 90vh;
 }
 
-#msg_totalVoto {
-    font-size: 20px;
+.container-raking img {
+    width: 7vw;
+    height: 20vh;
+    margin-top: 40px;
+}
+
+.container-graficobar { 
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 /* TITULO  */
@@ -204,15 +153,19 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 6em;
+    font-size: 4em;
     font-weight: bold;
     color: #fff;
     /* font-weight: bolder; */
     flex-direction: column;
 }
 
-#title-mod p {
-    margin-bottom: -30px;
+.title {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-bottom: -50px;
+    margin-top: -30px;
 }
 
 button:hover {

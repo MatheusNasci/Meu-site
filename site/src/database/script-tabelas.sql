@@ -14,7 +14,8 @@ create table usuario(
     senha varbinary(128)
 );
 
-create table (
-    id
+create table votos(
+    idVoto int primary key auto_increment,
+    nomeMod varchar(35),
+    momento datetime default current_timestamp
 );
-
