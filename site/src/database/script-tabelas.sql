@@ -17,5 +17,7 @@ create table usuario(
 create table votos(
     idVoto int primary key auto_increment,
     nomeMod varchar(35),
-    momento datetime default current_timestamp
+    momento datetime default current_timestamp,
+    fkUsuario int,
+	foreign key (fkUsuario) references usuario(idUsuario)
 );
