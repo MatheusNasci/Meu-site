@@ -69,49 +69,6 @@ button {
     box-shadow: 0px 0px 1px 1px wheat;
 }
 
-/* VOTOS */
-#container-voto {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.votos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    background-color: black;
-}
-
-.votos-botoes{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-}
-
-.votos-botoes button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 15vw;
-    font-size: 1.7em;
-    margin-top: 85px;
-    margin-left: 20px;
-    /* font-weight: bold; */
-}
-
-#msg_totalVoto {
-    font-size: 20px;
-    margin: 10px;
-}
-
-.card-votos h1 {
-    color: #fff;
-}
-
 /* SELECT */
 select {
     font-size: 1.5em;
@@ -166,7 +123,6 @@ select {
     flex-direction: row;
     text-align: center;
     margin-bottom: -50px;
-    margin-top: -30px;
 }
 
 button:hover {

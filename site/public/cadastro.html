@@ -30,6 +30,18 @@
 
             <p>Confirme sua senha</p>
             <input type="password" id="confirmacao_senha_input" placeholder="Confirme sua senha">
+            <p>Selecione seu mod favorito</p>
+            <div class="votos-botoes">
+                <select id="select_option">
+                    <option> - Selecione - </option>
+                    <option value="1">Pixelmon</option>
+                    <option value="2">Shaders</option>
+                    <option value="3">Lucky Block</option>
+                    <option value="4">Xaero's World</option>
+                    <option value="5">Biome Bundlemod</option>
+                    <option value="6">Chisel</option>
+                </select>
+            </div>
 
             <div id="div_aguardar" class="loading-div">
                 <img src="assets/imgs/loading.gif" id="loading-gif">
@@ -67,6 +79,7 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var modFavoritoVar = select_option.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             mensagem_erro.innerHTML = "Mensagem de erro para todos os campos em branco";
@@ -97,7 +110,8 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                modServer: modFavoritoVar
             })
         }).then(function (resposta) {
 

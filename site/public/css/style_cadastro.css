@@ -24,7 +24,7 @@ body {
 
 .card {
     background-color: #fff;
-    height: 115vh;
+    height: 130vh;
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -135,3 +135,20 @@ body {
     color: red;
 }
 
+.votos-botoes{
+    display: flex;
+    flex-direction: column;
+}
+.votos-botoes select{
+    margin: 0;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    padding: 14px;
+    width: 100%;
+    margin: 10px;
+}
+
+.votos-botoes p {
+    margin: 6px;
+}

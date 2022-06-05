@@ -21,8 +21,15 @@ function buscarMedidasEmTempoReal(idVoto) {
     return database.executar(instrucaoSql);
 }
 
+function votar(nomeMod, fkUsuario){
+    instrucaoSql = `insert into votos (nomeMod, fkUsuario)values 
+	('${nomeMod}',${fkUsuario});`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    votar
 }

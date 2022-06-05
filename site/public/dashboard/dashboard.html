@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <div id="global" class="global-class" onload="validarSessao(), validarTipo()"></div>
+
     <div class="nav">
         <div class="container">
             <div class="caixa-user-class">
@@ -40,26 +42,7 @@
             <div id="msg_totalVoto"></div>
         </div>
     </div>
-    <div id="container-voto" class="votos">
-        <div class="card-votos">
-            <h1>Qual mod você deseja votar?</h1>
-            <div class="votos-botoes">
-                <select id="select_option">
-                    <option> - Selecione - </option>
-                    <option value="1">Shaders</option>
-                    <option value="2">Pixelmon</option>
-                    <option value="3">Lucky Block</option>
-                    <option value="4">Xaero's World</option>
-                    <option value="5">Biome Bundlemod</option>
-                    <option value="6">Chisel</option>
-                </select>
-                <div class="seila">
-                    <button onclick="votar()">VOTAR</button>
-                    <div id="msg_voto"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div id="newmods">
         <div class="card-mod">
             <img src="../assets/imgs/shadersmods-logo.png" alt="">
@@ -226,9 +209,11 @@
         }
     });
 
-    function votar() {
-
+    function voto(req, res) {
         var escolha = Number(select_option.value);
+        var nomeVar = select_option.value;
+        var usuarioVar = sessionStorage.ID_USUARIO;
+
         if (escolha == 1) {
             vt_votos.push('Shaders');
             msg_voto.innerHTML = `+${++contadorShaders} Voto para o Shaders`;
@@ -266,7 +251,7 @@
             }
 
         } else if (escolha == 6) {
-            
+
             vt_votos.push('Chisel');
             msg_voto.innerHTML = `+${++contadorChiel} Voto para o Chiel`;
 
@@ -274,6 +259,34 @@
                 msg_totalVoto.innerHTML = `Total Votos: ${index}`;
             }
         }
+
+        fetch("/votar/cadastrarVoto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                usuarioServer: usuarioVar
+            })
+
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o cadastro do mod!");
+
+                resposta.text().then(texto => {
+                    
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
     }
 
@@ -308,7 +321,7 @@
             labels: [],
             datasets: [
                 {
-                    
+
                     data: []
                 },
                 {
@@ -317,6 +330,6 @@
             ]
         };
 
-       
+
     }
 </script>
