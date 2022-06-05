@@ -1,25 +1,21 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idDado, limite_linhas) {
-    instrucaoSql = `select top ${limite_linhas}
-                        temperatura, 
-                        umidade,
-                        FORMAT(momento,'hh:mm:ss') as momento_grafico
-                    from dados_sensor
-                    where fkSensor = ${idDado}
-                    order by idDado desc`;
+function buscarUltimasMedidas(idVoto, nomeMod){
+    instrucaoSql = `select count(${idVoto})
+                        nomeMod
+                    from votos
+                    where nomeMod = ${nomeMod}`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idDado) {
-    instrucaoSql = `select top 1
-                        temperatura, 
-                        umidade, 
-                        FORMAT(momento,'hh:mm:ss') as momento_grafico, 
-                        fkSensor 
-                        from dados_sensor where fkSensor = ${idDado} 
-                    order by idDado desc`;
+function buscarMedidasEmTempoReal(idVoto) {
+    instrucaoSql = `select  
+                        idVoto
+                        nomeMod,
+                        fkUsuario
+                        from votos where idVoto = ${idVoto} 
+                    order by idVoto desc`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

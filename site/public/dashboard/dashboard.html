@@ -197,7 +197,7 @@
             labels: ['Pixelmon', 'Chisel', 'Shaders', 'Lucky Block', 'Biome Blundlemod', 'Xaeros World Map'],
             datasets: [{
                 label: 'Votos',
-                data: [12, 19, 3, 5, 12, 3],
+                data: [12, 19, 3, 5, 12, 13],
                 backgroundColor: [
                     'red',
                     'grey',
@@ -275,5 +275,48 @@
             }
         }
 
+    }
+
+    function obterDadosGrafico(idVoto) {
+        alterarTitulo(idVoto)
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/medidas/ultimas/${idVoto}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idVoto);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta, idVoto) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    
+                    data: []
+                },
+                {
+                    data: []
+                }
+            ]
+        };
+
+       
     }
 </script>
