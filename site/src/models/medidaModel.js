@@ -1,35 +1,38 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idVoto, nomeMod){
-    instrucaoSql = `select count(${idVoto})
-                        nomeMod
-                    from votos
-                    where nomeMod = ${nomeMod}`;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+function buscarUltimasMedidas() {
+  instrucaoSql = `select 
+  count(usuario.fkMod) as contagem, 
+  mods.nomeMod
+  from usuario
+  join mods on idMod = fkMod group by nomeMod`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
 }
 
 function buscarMedidasEmTempoReal(idVoto) {
-    instrucaoSql = `select  
+  instrucaoSql = `select  
                         idVoto
                         nomeMod,
                         fkUsuario
                         from votos where idVoto = ${idVoto} 
                     order by idVoto desc`;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
 }
 
-function votar(nomeMod, fkUsuario){
-    instrucaoSql = `insert into votos (nomeMod, fkUsuario)values 
-	('${nomeMod}',${fkUsuario});`;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+function buscarTotalFavoritos() {
+  instrucaoSql = `select 
+                  count(usuario.fkMod) 
+                  from usuario;`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
 }
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal,
-    votar
-}
+  buscarUltimasMedidas,
+  buscarMedidasEmTempoReal,
+  buscarTotalFavoritos
+};

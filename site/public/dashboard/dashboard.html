@@ -2,12 +2,12 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/imgs/balde-lava-icon.png" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../assets/imgs/balde-lava-icon.png" type="image/x-icon" />
     <script src="../js/funcoes.js"></script>
-    <link rel="stylesheet" href="dashboard_style.css">
+    <link rel="stylesheet" href="dashboard_style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
     <title>Portal Do Nether</title>
@@ -19,22 +19,24 @@
     <div class="nav">
         <div class="container">
             <div class="caixa-user-class">
-                <h2>Bem-vindo ao Portal, <span style="color: blueviolet;" ; id="b_usuario">username</span></h2>
+                <h2>
+                    Bem-vindo ao Portal,
+                    <span style="color: blueviolet" ; id="b_usuario">username</span>
+                </h2>
             </div>
             <div class="logo">
-                <img src="../assets/imgs/portal_do_Nether-logotipo.png">
+                <img src="../assets/imgs/portal_do_Nether-logotipo.png" />
             </div>
             <li><a href="#newmods">Novos Mods</a></li>
             <li><a href="#container-voto">Votar</a></li>
-            <button onclick="limparSessao()" style="cursor: pointer;">Sair</button>
-
+            <button onclick="limparSessao()" style="cursor: pointer">Sair</button>
         </div>
     </div>
     <div id="ranking" class="container-raking">
         <div id="title-mod">
             <div class="title">
                 <p>RANKING</p>
-                <img src="../assets/imgs/trofeu.png" alt="" width="30%">
+                <img src="../assets/imgs/trofeu.png" alt="" width="30%" />
             </div>
             <div class="container-graficobar">
                 <canvas id="myChart" width="900" height="400"></canvas>
@@ -42,294 +44,195 @@
             <div id="msg_totalVoto"></div>
         </div>
     </div>
+
     
     <div id="newmods">
         <div class="card-mod">
-            <img src="../assets/imgs/shadersmods-logo.png" alt="">
-            <p>
-                É conhecido como pacotes de shaders , adicionam suporte a shaders ao Minecraft e adicionam vários
-                buffers de desenho, mapa de sombras, mapa normal, mapa especular, sombras realistas, efeitos de
-                iluminação,
-                texturas 3D, ondas de água realistas e raios de sol, melhoria de nuvens, grama balançando e folhas.
-                contém uma infinidade de shaderpacks reunidos, garantindo que o jogador encontre um redesenho de um
-                objeto familiar toda vez que inicializar o jogo. Usando a cooperação de vários desenvolvedores de mods,
-                Shaders Mod fornece alterações gráficas para sombras, clima, luz e desenho de mapas. Embora esses
-                aspectos pareçam bastante simples, eles atribuem a maior parte da atmosfera visual do jogo. O clima de
-                tempestade parecerá mais escuro e ameaçador, a luz do sol parecerá mais brilhante e mais calmante e o
-                pôr do sol parecerá mais magnífico do que antes.
+            <img src="../assets/imgs/shadersmods-logo.png" alt="" />
+            <p id="textshaders">
             </p>
             <a><button>DOWNLOAD</button></a>
         </div>
 
         <div class="card-mod">
-            <img style="width: 180px; margin-bottom: -10px;" src="../assets/imgs/chielmods.png" alt="">
+            <img style="width: 180px; margin-bottom: -10px" src="../assets/imgs/chielmods.png" alt="" />
             <h2>Chisel Mod</h2>
-            <p>
-                É um mod que todo artista que joga Minecraft provavelmente apreciará. Um dos principais atrativos deste
-                mod
-                é a grande variedade de blocos decorativos que ele adiciona ao jogo, permitindo muitas novas construções
-                e
-                projetos de construção. Mais opções são sempre boas para pessoas que não querem que seus prédios pareçam
-                muito chatos e este é o mod perfeito para esses jogadores. Mas você não encontra esses novos designs
-                especiais ocorrendo naturalmente no mundo. A única maneira de obtê-los é interagindo com blocos usando o
-                novo item cinzel, que permite cortar designs exclusivos em faces de bloco.
+            <p id="textchield">
             </p>
             <a><button>DOWNLOAD</button></a>
         </div>
-
+        
         <div class="card-mod">
-            <img style="width: 180px;" src="../assets/imgs/biomebundlemod.png" alt="">
-            <p>
-                É um gerador de mundo completamente personalizado contendo um enorme pacote de mais de 400 biomas
-                originais com
-                mais de 2.000 estruturas, incluindo árvores personalizadas, rochas, cavernas, masmorras, aldeias e muito
-                mais.
-
-                O conteúdo consiste em 4 partes principais:
-                Biomas e terrenos
-                personalizados Objetos personalizados (árvores, rochas, etc)
-                Estruturas personalizadas (masmorras, ruínas, etc)
-                Regras personalizadas de geração de mobs (em biomas selecionados)
+            <img style="width: 180px" src="../assets/imgs/biomebundlemod.png" alt="" />
+            <p id="textBio">
+                
             </p>
             <a><button>DOWNLOAD</button></a>
         </div>
         <div class="card-mod">
-            <img style="width: 150px;" src="../assets/imgs/luckyblock.png" alt="">
+            <img style="width: 150px" src="../assets/imgs/luckyblock.png" alt="" />
             <h2>Lucky Block</h2>
-            <p>
-                É um bloco da sorte que escolhe aleatoriamente um dos mais de 100 resultados possíveis.
-                Estes cobrem a maioria dos componentes do jogo, incluindo itens, baús, monstros,
-                estruturas, poções, encantamentos, etc.
-                Vários itens especiais - uma espada, arco e poção - podem ser encontrados ocasionalmente no bloco.
-                Cada um deles produzirá resultados aleatórios além de suas funções padrão.
-
-                O mod visa tornar o jogo mais divertido, adicionando um elemento de aleatoriedade e
-                imprevisibilidade. Você mesmo pode personalizar todos os resultados ou baixar uma variedade de
-                complementos da comunidade
+            <p id="textLucky">
+                
             </p>
             <a><button>DOWNLOAD</button></a>
         </div>
 
         <div class="card-mod">
-            <img style="width: 150px;" src="../assets/imgs/pixelmon.png" alt="">
+            <img style="width: 150px" src="../assets/imgs/pixelmon.png" alt="" />
             <h2>Pixelmon</h2>
-            <p>
-                Pixelmon adiciona muitos aspectos do Pokémon ao Minecraft, incluindo os próprios Pokémon, batalhas,
-                trocas e
-                criação. Pixelmon também inclui uma variedade de novos itens, incluindo itens proeminentes como Poké
-                Balls e
-                TMs, novos recursos como minério de bauxita e Apricorns e novos blocos decorativos como cadeiras e
-                relógios.
-                Para a maioria desses recursos, Pixelmon tenta combinar as mecânicas dos jogos Pokémon o mais próximo
-                possível, incluindo mecânicas de batalha que combinam com as mecânicas dos jogos Pokémon da Geração 8.
-                No
-                entanto, alguns aspectos do Pixelmon são originais e divergem dos jogos, como uma mecânica de reprodução
-                em
-                que os Pokémon precisam de um ambiente adequado ao seu redor para se reproduzir.
+            <p id="textPixel">
             </p>
             <a><button>DOWNLOAD</button></a>
         </div>
-
+        
         <div class="card-mod">
-            <img style="width: 150px;" src="../assets/imgs/minimap.png" alt="">
+            <img style="width: 150px" src="../assets/imgs/minimap.png" alt="" />
             <h2>Xaero's World Map</h2>
-            <p>
-                O mod Mapa do Mundo da Xaero adiciona um mapa de tela cheia de escrita automática ao seu cliente
-                Minecraft. Funciona como um mod separado, mas é muito melhor com o Minimap da Xaero. A razão pela qual
-                está disponível separadamente é manter o Minimap da Xaero o mais leve possível. Este mod é
-                principalmente do lado do cliente. A instalação no lado do servidor é opcional para alguns recursos
-                adicionais, como identificação mundial.
+            <p id="textMap">
             </p>
             <a><button>DOWNLOAD</button></a>
         </div>
     </div>
     <footer id="pezao">
-        <img src="../assets/imgs/poblaze.png" alt="">
+        <img src="../assets/imgs/poblaze.png" alt="" />
         <div class="text-footer">
             <p>Melhor site para mods</p>
             <div class="icons">
-                <a href="https://www.facebook.com/"><img src="../assets/imgs/facebook_icon.png" alt=""></a>
+                <a href="https://www.facebook.com/"><img src="../assets/imgs/facebook_icon.png" alt="" /></a>
                 <a
                     href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoicHQifQ%3D%3D%22%7D"><img
-                        src="../assets/imgs/twitter_icon.png" alt=""></a>
+                    src="../assets/imgs/twitter_icon.png" alt="" /></a>
             </div>
         </div>
-        <p>Copyright © Nether </p>
+        <p>Copyright © Nether</p>
     </footer>
 </body>
 
 </html>
 <script>
-    var vt_votos = [];
-    var contadorShaders = 0;
-    var contadorPixelmon = 0;
-    var contadorLucky = 0;
-    var contadorXaero = 0;
-    var contadorBiome = 0;
-    var contadorChiel = 0;
-    var totalVotos = 0;
+    var texto = [`É conhecido como pacotes de shaders , adicionam suporte a shaders ao
+                Minecraft e adicionam vários buffers de desenho, mapa de sombras, mapa
+                normal, mapa especular, sombras realistas, efeitos de iluminação,
+                texturas 3D, ondas de água realistas e raios de sol, melhoria de
+                nuvens, grama balançando e folhas. contém uma infinidade de
+                shaderpacks reunidos, garantindo que o jogador encontre um redesenho
+                de um objeto familiar toda vez que inicializar o jogo. Usando a
+                cooperação de vários desenvolvedores de mods, Shaders Mod fornece
+                alterações gráficas para sombras, clima, luz e desenho de mapas.
+                Embora esses aspectos pareçam bastante simples, eles atribuem a maior
+                parte da atmosfera visual do jogo. O clima de tempestade parecerá mais
+                escuro e ameaçador, a luz do sol parecerá mais brilhante e mais
+                calmante e o pôr do sol parecerá mais magnífico do que antes.`,`É um mod que todo artista que joga Minecraft provavelmente apreciará.
+                Um dos principais atrativos deste mod é a grande variedade de blocos
+                decorativos que ele adiciona ao jogo, permitindo muitas novas
+                construções e projetos de construção. Mais opções são sempre boas para
+                pessoas que não querem que seus prédios pareçam muito chatos e este é
+                o mod perfeito para esses jogadores. Mas você não encontra esses novos
+                designs especiais ocorrendo naturalmente no mundo. A única maneira de
+                obtê-los é interagindo com blocos usando o novo item cinzel, que
+                permite cortar designs exclusivos em faces de bloco.`,`É um gerador de mundo completamente personalizado contendo um enorme
+                pacote de mais de 400 biomas originais com mais de 2.000 estruturas,
+                incluindo árvores personalizadas, rochas, cavernas, masmorras, aldeias
+                e muito mais. O conteúdo consiste em 4 partes principais: Biomas e
+                terrenos personalizados Objetos personalizados (árvores, rochas, etc)
+                Estruturas personalizadas (masmorras, ruínas, etc) Regras
+                personalizadas de geração de mobs (em biomas selecionados)`,`É um bloco da sorte que escolhe aleatoriamente um dos mais de 100
+                resultados possíveis. Estes cobrem a maioria dos componentes do jogo,
+                incluindo itens, baús, monstros, estruturas, poções, encantamentos,
+                etc. Vários itens especiais - uma espada, arco e poção - podem ser
+                encontrados ocasionalmente no bloco. Cada um deles produzirá
+                resultados aleatórios além de suas funções padrão. O mod visa tornar o
+                jogo mais divertido, adicionando um elemento de aleatoriedade e
+                imprevisibilidade. Você mesmo pode personalizar todos os resultados ou
+                baixar uma variedade de complementos da comunidade.`,`Pixelmon adiciona muitos aspectos do Pokémon ao Minecraft, incluindo
+                os próprios Pokémon, batalhas, trocas e criação. Pixelmon também
+                inclui uma variedade de novos itens, incluindo itens proeminentes como
+                Poké Balls e TMs, novos recursos como minério de bauxita e Apricorns e
+                novos blocos decorativos como cadeiras e relógios. Para a maioria
+                desses recursos, Pixelmon tenta combinar as mecânicas dos jogos
+                Pokémon o mais próximo possível, incluindo mecânicas de batalha que
+                combinam com as mecânicas dos jogos Pokémon da Geração 8. No entanto,
+                alguns aspectos do Pixelmon são originais e divergem dos jogos, como
+                uma mecânica de reprodução em que os Pokémon precisam de um ambiente
+                adequado ao seu redor para se reproduzir.`,`O mod Mapa do Mundo da Xaero adiciona um mapa de tela cheia de escrita
+                automática ao seu cliente Minecraft. Funciona como um mod separado,
+                mas é muito melhor com o Minimap da Xaero. A razão pela qual está
+                disponível separadamente é manter o Minimap da Xaero o mais leve
+                possível. Este mod é principalmente do lado do cliente. A instalação
+                no lado do servidor é opcional para alguns recursos adicionais, como
+                identificação mundial.`]
 
     var nome = sessionStorage.NOME_USUARIO;
-    var username = document.getElementById("b_usuario")
-    username.innerHTML = nome
+    var username = document.getElementById("b_usuario");
+    username.innerHTML = nome;
 
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Pixelmon', 'Chisel', 'Shaders', 'Lucky Block', 'Biome Blundlemod', 'Xaeros World Map'],
-            datasets: [{
-                label: 'Votos',
-                data: [12, 19, 3, 5, 12, 13],
-                backgroundColor: [
-                    'red',
-                    'grey',
-                    'green',
-                    'yellow',
-                    'blue',
-                    'saddlebrown'
-                ],
-                borderColor: [
-                    'red',
-                    'grey',
-                    'green',
-                    'yellow',
-                    'blue',
-                    'saddlebrown'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    textshaders.innerHTML = `${texto[0]}`,
+    textchield.innerHTML = `${texto[1]}`,
+    textBio.innerHTML = `${texto[2]}`,
+    textLucky.innerHTML = `${texto[3]}`,
+    textPixel.innerHTML = `${texto[4]}`,
+    textMap.innerHTML = `${texto[5]}`,
 
-    function voto(req, res) {
-        var escolha = Number(select_option.value);
-        var nomeVar = select_option.value;
-        var usuarioVar = sessionStorage.ID_USUARIO;
+    window.onload = obterDadosGrafico(1);
 
-        if (escolha == 1) {
-            vt_votos.push('Shaders');
-            msg_voto.innerHTML = `+${++contadorShaders} Voto para o Shaders`;
-
-            for (var index = 0; index < vt_votos.length + 1; index++) {
-                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
-            }
-        } else if (escolha == 2) {
-            vt_votos.push('Pixelmon');
-            msg_voto.innerHTML = `+${++contadorPixelmon} Voto para o Pixelmon`;
-
-            for (var index = 0; index < vt_votos.length + 1; index++) {
-                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
-            }
-        } else if (escolha == 3) {
-            vt_votos.push('Lucky');
-            msg_voto.innerHTML = `+${++contadorLucky} Voto para o Lucky Block`;
-
-            for (var index = 0; index < vt_votos.length + 1; index++) {
-                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
-            }
-        } else if (escolha == 4) {
-            vt_votos.push('Xaero');
-            msg_voto.innerHTML = `+${++contadorXaero} Voto para o Xaero's World`;
-
-            for (var index = 0; index < vt_votos.length + 1; index++) {
-                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
-            }
-        } else if (escolha == 5) {
-            vt_votos.push('Biome');
-            msg_voto.innerHTML = `+${++contadorBiome} Voto para o Biome Bundlemod`;
-
-            for (var index = 0; index < vt_votos.length + 1; index++) {
-                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
-            }
-
-        } else if (escolha == 6) {
-
-            vt_votos.push('Chisel');
-            msg_voto.innerHTML = `+${++contadorChiel} Voto para o Chiel`;
-
-            for (var index = 0; index < vt_votos.length + 1; index++) {
-                msg_totalVoto.innerHTML = `Total Votos: ${index}`;
-            }
-        }
-
-        fetch("/votar/cadastrarVoto", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nomeServer: nomeVar,
-                usuarioServer: usuarioVar
-            })
-
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o cadastro do mod!");
-
-                resposta.text().then(texto => {
-                    
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-    }
+    const ctx = document.getElementById("myChart").getContext("2d");
 
     function obterDadosGrafico(idVoto) {
-        alterarTitulo(idVoto)
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
+        fetch(`/medidas/ultimas/${idVoto}`, { cache: "no-store" })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
 
-        fetch(`/medidas/ultimas/${idVoto}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idVoto);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
+                        plotarGrafico(resposta, idVoto);
+                    });
+                } else {
+                    console.error("Nenhum dado encontrado ou erro na API");
+                }
+            })
             .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                console.error(
+                    `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+                );
             });
     }
 
-    function plotarGrafico(resposta, idVoto) {
-        console.log('iniciando plotagem do gráfico...');
-
+    function plotarGrafico(resposta) {
         var dados = {
             labels: [],
             datasets: [
                 {
-
-                    data: []
+                    label: "Votos",
+                    borderColor: [],
+                    backgroundColor: ['grey', 'saddlebrown', 'blue', 'yellow', 'green', 'red',],
+                    data: [],
                 },
-                {
-                    data: []
-                }
-            ]
+            ],
         };
 
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.nomeMod);
+            dados.datasets[0].data.push(registro.contagem);
+        }
 
+        window.myChart = new Chart(ctx, {
+            type: "bar",
+            data: dados,
+            options: {
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                        },
+                    ],
+                },
+            },
+        });
     }
 </script>

@@ -7,12 +7,12 @@ router.get("/ultimas/:idVoto", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
 
+router.get("/total/:idVoto", function (req, res) {
+    medidaController.buscarTotalFavoritos(req, res);
+});
+
 router.get("/tempo-real/:idVoto", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
-})
-
-router.get("/votar/:idVoto", function (req, res) {
-    medidaController.votar(req, res);
 })
 
 module.exports = router;

@@ -1,14 +1,27 @@
 var medidaModel = require("../models/medidaModel");
 
 function buscarUltimasMedidas(req, res) {
-
-    const limite_linhas = 7;
-
+    
     var idVoto = req.params.idVoto;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    medidaModel.buscarUltimasMedidas(idVoto).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
-    medidaModel.buscarUltimasMedidas(idVoto, limite_linhas).then(function (resultado) {
+function buscarTotalFavoritos(req, res) {
+    
+    var idVoto = req.params.idVoto;
+
+    medidaModel.buscarTotalFavoritos(idVoto).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -41,26 +54,8 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
-function votar(req, res) {
-    medidaModel.votar(nomeVar, usuarioVar)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-}
-
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    votar
+    buscarTotalFavoritos
 }
