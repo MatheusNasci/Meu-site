@@ -198,8 +198,26 @@
                     `Erro na obtenção dos dados p/ gráfico: ${error.message}`
                 );
             });
-    }
 
+            fetch(`/medidas/buscar-total`, {cache: "no-store"})
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        var contagemVotos = resposta[0]['count(usuario.fkMod)']
+                        console.log(resposta)
+                        document.getElementById("msg_totalVoto").innerHTML = JSON.stringify(contagemVotos)
+                    });
+                } else {
+                    console.error("Nenhum dado encontrado ou erro na API");
+                }
+            }) 
+            .catch(function (error) {
+                console.error(
+                    `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+                );
+            });
+    }
+    
     function plotarGrafico(resposta) {
         var dados = {
             labels: [],

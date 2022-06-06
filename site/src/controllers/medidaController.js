@@ -17,11 +17,10 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
-function buscarTotalFavoritos(req, res) {
-    
-    var idVoto = req.params.idVoto;
+function buscarTotalMedidas(req, res) {
+    console.log(`Recuperando todas as medidas`);
 
-    medidaModel.buscarTotalFavoritos(idVoto).then(function (resultado) {
+    medidaModel.buscarTotalFavoritos().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -30,10 +29,9 @@ function buscarTotalFavoritos(req, res) {
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+
     });
 }
-
 
 function buscarMedidasEmTempoReal(req, res) {
 
@@ -57,5 +55,5 @@ function buscarMedidasEmTempoReal(req, res) {
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarTotalFavoritos
+    buscarTotalMedidas
 }

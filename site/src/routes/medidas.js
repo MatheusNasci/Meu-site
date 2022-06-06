@@ -7,9 +7,9 @@ router.get("/ultimas/:idVoto", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
 
-router.get("/total/:idVoto", function (req, res) {
-    medidaController.buscarTotalFavoritos(req, res);
-});
+router.get("/buscar-total", function(req, res) {
+    medidaController.buscarTotalMedidas(req, res)
+})
 
 router.get("/tempo-real/:idVoto", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
