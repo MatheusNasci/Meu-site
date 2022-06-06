@@ -28,7 +28,7 @@
                 <img src="../assets/imgs/portal_do_Nether-logotipo.png" />
             </div>
             <li><a href="#newmods">Novos Mods</a></li>
-            <li><a href="#container-voto">Votar</a></li>
+            <li><a href="#pezao">Contato</a></li>
             <button onclick="limparSessao()" style="cursor: pointer">Sair</button>
         </div>
     </div>
@@ -177,7 +177,7 @@
     window.onload = obterDadosGrafico(1);
 
     const ctx = document.getElementById("myChart").getContext("2d");
-
+    let test;
     function obterDadosGrafico(idVoto) {
 
         fetch(`/medidas/ultimas/${idVoto}`, { cache: "no-store" })
@@ -203,9 +203,8 @@
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
-                        var contagemVotos = resposta[0]['count(usuario.fkMod)']
-                        console.log(resposta)
-                        document.getElementById("msg_totalVoto").innerHTML = JSON.stringify(contagemVotos)
+                        var contagemVotos = resposta[0].TotalVotos
+                        document.getElementById("msg_totalVoto").innerHTML = `Total de Votos: ${JSON.stringify(contagemVotos)}`
                     });
                 } else {
                     console.error("Nenhum dado encontrado ou erro na API");

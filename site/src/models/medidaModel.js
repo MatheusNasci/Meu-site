@@ -25,7 +25,7 @@ function buscarMedidasEmTempoReal(idVoto) {
 
 function buscarTotalFavoritos() {
   instrucaoSql = `select 
-                  count(usuario.fkMod) as "Total Votos"
+                  count(usuario.fkMod) as "TotalVotos"
                   from usuario;`;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

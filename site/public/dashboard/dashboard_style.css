@@ -92,7 +92,7 @@ select {
     display: flex;
     justify-content: center;
     background-color: blueviolet;
-    height: 90vh;
+    height: 100vh;
 }
 
 .container-raking img {
@@ -106,6 +106,9 @@ select {
     border-radius: 5px;
 }
 
+#msg_totalVoto{
+    font-size: 0.7em;
+}
 /* TITULO  */
 #title-mod {
     display: flex;

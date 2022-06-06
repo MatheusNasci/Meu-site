@@ -16,3 +16,11 @@ create table usuario(
     fkMod int,
 	foreign key (fkMod) references mods(idMod)
 );
+
+insert into mods (nomeMod, descricao)values 
+    ('Pixelmon','Pokemons e batalhas'),
+    ('Shaders','Mod para deixar mais realista'),
+    ('Lucky Block','Blocos aleatórios'),
+    ("Xaero's World",'Minimap para localização'),
+    ('Biome Bundlemod','Adiciona mais de 100 biomas diferentes'),
+    ('Chisel','Adiociona ao jogos novos blocos');
